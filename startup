@@ -61,7 +61,7 @@ if whoami | grep -q 'u0_'; then # Termux
   apt install wget nano python3 p7zip \
       proot-distro git wget man htop tree \
       nodejs ffmpeg file lynx jq bc whois \
-      imagemagick potrace iproute2 \
+      imagemagick potrace iproute2 mediainfo \
       -o DPkg::Options::="--force-confnew" -y && \
       npm install peerflix -g
 
@@ -108,7 +108,7 @@ elif [[ $(arch-chroot 2>&1) == '==> ERROR: No chroot directory specified' ]]; th
   read -p $'\e[33mWARNING : this script was made for ARCH ISOs. Otherwise, expect your system to break.\nAlso, there is a high chance you break your system by skipping steps or setting up multiple users.\e[0m\nContinue ? (default=n) ' x
 
   if [ "$x" != chroot ]; then
-  
+
     [ "$x" != y ] && echo -e '\nExiting...\n' && exit
 
     # internet check
